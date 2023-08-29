@@ -1,0 +1,37 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Wallet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Bitcoin Wallet</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1>Welcome to Bitcoin Wallet</h1>
+                <p>Secure, user-friendly, and efficient in managing and transacting Bitcoin.</p>
+                <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+```
+This is the main landing page of the Bitcoin Wallet. It includes a navigation bar with links to the login and register pages. The main content of the page is a welcome message and a button to get started by registering a new account. The page also includes links to the main CSS and JavaScript files.
