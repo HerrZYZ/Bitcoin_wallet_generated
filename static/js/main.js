@@ -1,10 +1,23 @@
+## Code: static/js/main.js
 ```javascript
-// static/js/main.js
-$(document).ready(function() {
-    var socket = io.connect('http://' + document.domain + ':' + location.port);
-    socket.on('balance change', function(msg) {
-        $('#balance').text(msg.balance);
-    });
+// Establish a connection to the server
+var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+// Listen for the 'balance change' event from the server
+socket.on('balance change', function(msg) {
+    // Update the balance in the UI
+    $('#balance').text(msg.balance);
 });
+
+// Function to send Bitcoin
+function sendBitcoin(amount, recipient) {
+    // Emit the 'send bitcoin' event to the server
+    socket.emit('send bitcoin', {amount: amount, recipient: recipient});
+}
+
+// Function to receive Bitcoin
+function receiveBitcoin(amount, sender) {
+    // Emit the 'receive bitcoin' event to the server
+    socket.emit('receive bitcoin', {amount: amount, sender: sender});
+}
 ```
-This JavaScript code is used to connect to the Flask-SocketIO server and listen for 'balance change' events. When a 'balance change' event is received, it updates the balance displayed on the page.
